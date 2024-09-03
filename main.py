@@ -102,21 +102,19 @@ DistanceMatrix = ['braycurtis',
                   'seuclidean',
                   'sqeuclidean']
 
+# You can change the validation type to validate your dataset based on the type in ValidationTypes list 
 V = 0
-
 ValidationTypes = ["Distance Validation",
                    "Feature Validation",
                    "Feature and Distance Validation"]
 
-Validation = ValidationTypes[V]
-
+ValidationType = ValidationTypes[V]
 ################################################
 pickle_ = Pickle()
 save_path = '/Results/'
 
 
-
-if Validation == "Distance Validation":
+if ValidationType == "Distance Validation":
     """
     The ResultsArray here represents the growing status impact toward distance and centers relations.
     ResultsArray for every growing status will be generated
@@ -134,7 +132,7 @@ if Validation == "Distance Validation":
 
 
 
-elif Validation == 'Feature Validation':
+elif ValidationType == 'Feature Validation':
     """
     The ResultsArray here represents the growing status impact toward features and centers relations.
     ResultsArray for every growing status will be generated
@@ -151,7 +149,7 @@ elif Validation == 'Feature Validation':
         pickle_.Saver(os.path.join(save_path,filename), ResultsArray)
 
 
-elif Validation == "Feature and Distance Validation":
+elif ValidationType == "Feature and Distance Validation":
     """
     The ResultsArray array here represents the features impact toward distance and centers relations. 
     ResultsArray for every Feature set in F will be generated
